@@ -1,23 +1,11 @@
 import { useRouter } from "next/Router"
-import { useState } from "react"
+import { Formik } from 'formik'
 
 import styles from '../../styles/Home.module.css'
 
 //import useUser from "../../hooks/useUser"
 
 export default function UserRegister() {
-  const [firstname, setFirstname] = useState("")
-  const [lastname, setLastname] = useState("")
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [email, setEmail] = useState("")
-  const [address, setAddress] = useState("")
-  const [phoneNumber, setPhoneNumber] = useState("")
-  const [country, setCountry] = useState("")
-  const [department, setDepartment] = useState("")
-  const [paymentMethod, setPaymentMethod] = useState("")
-  const [cardName, setCardName] = useState("")
-  const [cardNum, setCardNum] = useState("")
 
   const router = useRouter()
   /*
@@ -27,80 +15,103 @@ export default function UserRegister() {
       if (isLogged) router.push("/")
     }, [isLogged, router])
   */
+
   const handleSubmit = evt => {
-    evt.preventDefault()
+    console.log("Why")
     router.push("/")
     //  login()
   }
 
   return (
     <div className={styles.register}>
-      <formik>
-        <form onSubmit={handleSubmit}>
-          <input
-            placeholder="Nombres"
-            onChange={evt => setFirstname(evt.target.value)}
-            value={firstname}
-          />
-          <input
-            placeholder="Apellidos"
-            onChange={evt => setLastname(evt.target.value)}
-            value={lastname}
-          />
-          <input
-            placeholder="Nombre de usuario"
-            onChange={evt => setUsername(evt.target.value)}
-            value={username}
-          />
-          <input
-            type={password}
-            placeholder="Contraseña"
-            onChange={evt => setPassword(evt.target.value)}
-            value={password}
-          />
-          <input
-            placeholder="Correo electrónico"
-            onChange={evt => setEmail(evt.target.value)}
-            value={email}
-          />
-          <input
-            placeholder="Dirección"
-            onChange={evt => setAddress(evt.target.value)}
-            value={address}
-          />
-          <input
-            placeholder="Número telefónico"
-            onChange={evt => setPhoneNumber(evt.target.value)}
-            value={phoneNumber}
-          />
-          <input
-            placeholder="País"
-            onChange={evt => setCountry(evt.target.value)}
-            value={country}
-          />
-          <input
-            placeholder="Departamento"
-            onChange={evt => setDepartment(evt.target.value)}
-            value={department}
-          />
-          <input
-            placeholder="Tipo de tarjeta"
-            onChange={evt => setPaymentMethod(evt.target.value)}
-            value={paymentMethod}
-          />
-          <input
-            placeholder="Nombre en la tarjeta"
-            onChange={evt => setCardName(evt.target.value)}
-            value={cardName}
-          />
-          <input
-            placeholder="Número de la tarjeta"
-            onChange={evt => setCardNum(evt.target.value)}
-            value={cardNum}
-          />
-          <button>Registrar trabajador</button>
-        </form>
-      </formik>
+      <Formik
+        initialValues=
+        {{
+          nombres: "",
+          apellidos: "",
+          usuario: "",
+          contraseña: "",
+          correo: "",
+          direccion: "",
+          telefono: "",
+          pais: "",
+          departamento: "",
+          tipoTarjeta: "",
+          nombreTarjeta: "",
+          numeroTarjeta: ""
+        }}
+        onSubmit={handleSubmit}
+      >
+        {
+          ({ handleChange, handleSubmit }) =>
+          (
+            <form onSubmit={values => console.log(values)}>
+              <input
+                name="nombres"
+                placeholder="Nombres"
+                handleChange={handleChange}
+              />
+              <input
+                name="apellidos"
+                placeholder="Apellidos"
+                handleChange={handleChange}
+              />
+              <input
+                name="usuario"
+                placeholder="Nombre de usuario"
+                handleChange={handleChange}
+              />
+              <input
+                type="password"
+                name="contraseña"
+                placeholder="Contraseña"
+                handleChange={handleChange}
+              />
+              <input
+                name="correo"
+                placeholder="Correo electrónico"
+                handleChange={handleChange}
+              />
+              <input
+                name="direccion"
+                placeholder="Dirección"
+                handleChange={handleChange}
+              />
+              <input
+                name="telefono"
+                placeholder="Número telefónico"
+                handleChange={handleChange}
+              />
+              <input
+                name="pais"
+                placeholder="País"
+                handleChange={handleChange}
+              />
+              <input
+                name="departamento"
+                placeholder="Departamento"
+                handleChange={handleChange}
+              />
+              <input
+                name="tipoTarjeta"
+                placeholder="Tipo de tarjeta"
+                handleChange={handleChange}
+              />
+              <input
+                name="nombreTarjeta"
+                placeholder="Nombre en la tarjeta"
+                handleChange={handleChange}
+              />
+              <input
+                name="numeroTarjeta"
+                placeholder="Número de la tarjeta"
+                handleChange={handleChange}
+              />
+              <button>Registrar usuario</button>
+            </form>
+          )
+        }
+      </Formik>
     </div >
   );
 }

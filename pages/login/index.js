@@ -10,11 +10,14 @@ export default function Login() {
   const [password, setPassword] = useState("")
   const router = useRouter()
 
-  const { login, isLogged } = useUser()
+  const { login, logout, isLogged } = useUser()
 
   useEffect(() => {
-    if (isLogged) router.push("/")
-  }, [isLogged, router])
+    if (isLogged) {
+      router.push("/")
+      logout()
+    }
+  }, [isLogged, logout, router])
 
   const handleSubmit = evt => {
     evt.preventDefault()
