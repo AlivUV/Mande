@@ -11,7 +11,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
         break
 
       } catch (error) {
-        console.log(error)
+        res.status(200).json(error)
       }
     case 'POST':
       try {
@@ -19,7 +19,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
         break
 
       } catch (error) {
-        console.log(error)
+        res.status(200).json(error)
       }
 
     default:
