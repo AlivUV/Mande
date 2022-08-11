@@ -11,7 +11,8 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
         break
 
       } catch (error) {
-        console.log(error)
+
+        res.status(400).json(error)
       }
     case 'PUT':
       try {
@@ -19,7 +20,8 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
         break
 
       } catch (error) {
-        console.log(error)
+
+        res.status(400).json(error)
       }
 
     default:
@@ -28,7 +30,8 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
         break
 
       } catch (error) {
-        console.log(error)
+
+        res.status(400).json(error)
       }
   }
 
