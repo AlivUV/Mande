@@ -10,17 +10,16 @@ export default function UserRegister() {
 
   const router = useRouter()
 
-  const { login, isLogged } = useUser()
+  const { userRegister, isLogged } = useUser()
 
   useEffect(() => {
     if (isLogged) router.push("/")
   }, [isLogged, router])
 
-
   const handleSubmit = values => {
-    console.log(values)
-    router.push("/")
-    //  login()
+    //router.push("/")
+    userRegister(values)
+
   }
 
   return (
@@ -31,7 +30,7 @@ export default function UserRegister() {
           nombres: "",
           apellidos: "",
           usuario: "",
-          contraseña: "",
+          contrasena: "",
           correo: "",
           direccion: "",
           telefono: "",
@@ -64,7 +63,7 @@ export default function UserRegister() {
               />
               <input
                 type="password"
-                name="contraseña"
+                name="contrasena"
                 placeholder="Contraseña"
                 onChange={handleChange}
               />
