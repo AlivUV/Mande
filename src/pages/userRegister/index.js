@@ -17,7 +17,6 @@ export default function UserRegister() {
   }, [isLogged, router])
 
   const handleSubmit = values => {
-    //router.push("/")
     userRegister(values)
 
   }

@@ -10,15 +10,14 @@ export default function WorkerRegister() {
 
   const router = useRouter()
 
-  const { isLogged } = useUser()
+  const { userRegister, isLogged } = useUser()
 
   useEffect(() => {
     if (isLogged) router.push("/")
   }, [isLogged, router])
 
   const handleSubmit = values => {
-    console.log(values)
-    // router.push("/")
+    userRegister(values)
   }
 
   return (

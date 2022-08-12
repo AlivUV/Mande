@@ -36,7 +36,7 @@ export default function useUser() {
   const userRegister = useCallback(data => {
     const URL = "/api/userRegister"
 
-    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+    console.log('AAAAAAAAAAAAAAAAAAAAAAAA')
     console.log(data)
 
     fetch(
@@ -55,7 +55,7 @@ export default function useUser() {
       })
       .catch(error => console.error(`Error: ${error}`))
 
-  }, [setJWT])
+  }, [])
 
   const workerRegister = useCallback((usuario, contrasena) => {
     const URL = "/api/login"
