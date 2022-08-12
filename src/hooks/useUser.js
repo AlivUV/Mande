@@ -1,9 +1,9 @@
-import { useCallback, useContext } from 'react'
+import { useCallback, useContext, useEffect } from 'react'
 
 import Context from '../context/userContext'
 
 export default function useUser() {
-  const { jwt, setJWT } = useContext(Context)
+  const { jwt, setJWT, setUserType } = useContext(Context)
 
   const login = useCallback((usuario, contrasena) => {
     const URL = "/api/login"
@@ -21,8 +21,10 @@ export default function useUser() {
     )
       .then(response => response.json())
       .then(data => {
-        if (data.estado === 200)
-          setJWT('Prueba.')
+        if (data.estado === 200) {
+          setJWT('Logueado.')
+          setUserType(data.userType)
+        }
 
       })
       .catch(error => console.error(`Error: ${error}`))
