@@ -1,20 +1,20 @@
 import { useRouter } from "next/Router"
 import { Formik } from 'formik'
 
-import styles from '/src/styles/Home.module.css'
+import styles from 'src/styles/Home.module.css'
 
-//import useUser from "../../hooks/useUser"
+import useUser from "src/hooks/useUser"
 
 export default function UserRegister() {
 
   const router = useRouter()
-  /*
-    const { login, isLogged } = useUser()
-  
-    useEffect(() => {
-      if (isLogged) router.push("/")
-    }, [isLogged, router])
-  */
+
+  const { login, isLogged } = useUser()
+
+  useEffect(() => {
+    if (isLogged) router.push("/")
+  }, [isLogged, router])
+
 
   const handleSubmit = values => {
     console.log(values)
