@@ -18,7 +18,11 @@ export default function UserRegister() {
 
   const handleSubmit = values => {
     userRegister(values)
+  }
 
+  const handleCancel = (evt) => {
+    evt.preventDefault()
+    router.push("/")
   }
 
   return (
@@ -107,6 +111,7 @@ export default function UserRegister() {
                 onChange={handleChange}
               />
               <button>Registrar usuario</button>
+              <button onClick={handleCancel}>Cancelar</button>
             </form>
           )
         }

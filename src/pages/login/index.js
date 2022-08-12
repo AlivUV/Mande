@@ -1,5 +1,5 @@
 import { useRouter } from "next/Router"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Formik } from 'formik'
 
 import styles from '../../styles/Home.module.css'
@@ -11,7 +11,7 @@ export default function Login() {
   const [password, setPassword] = useState("")
   const router = useRouter()
 
-  const { login, isLogged } = useUser()
+  const { login, logout, isLogged } = useUser()
 
   useEffect(() => {
     if (isLogged) router.push("/")
@@ -20,6 +20,18 @@ export default function Login() {
 
   const handleSubmit = ({ usuario, contrasena }) => {
     return login(usuario, contrasena)
+  }
+
+  const handleCancel = (evt) => {
+    evt.preventDefault()
+    return router.push("/")
+  }
+
+  const handleShow = (evt) => {
+    evt.preventDefault()
+    const boton = document.getElementById("passwordField")
+
+    boton.type = (boton.type === 'text') ? 'password' : 'text'
   }
 
   return (
@@ -40,13 +52,20 @@ export default function Login() {
                 onChange={handleChange}
                 name="usuario"
               />
-              <input
-                type={password}
-                placeholder="Digite su contraseña"
-                onChange={handleChange}
-                name="contrasena"
-              />
-              <button>Login</button>
+              <div>
+                <input
+                  id="passwordField"
+                  type="password"
+                  placeholder="Digite su contraseña"
+                  onChange={handleChange}
+                  name="contrasena"
+                />
+                <button onClick={handleShow}>👁️</button>
+              </div>
+              <div>
+                <button>Login</button>
+                <button onClick={handleCancel}>Cancelar</button>
+              </div>
             </form>
           )
         }

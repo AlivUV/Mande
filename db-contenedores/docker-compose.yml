@@ -2,13 +2,6 @@ version: "3.8"
 
 services:
 
-  comandos:
-    image: alpine
-    stdin_open: true
-    tty: true
-    networks:
-      - network2
-
   baseDatos:
     image: postgres
     restart: always
@@ -21,7 +14,7 @@ services:
       POSTGRES_DB: baseDatos
     volumes:
       - ./sql/inicio.sql:/docker-entrypoint-initdb.d/create_tables.sql
-    #- ./volumenes/datos-pg:/var/lib/postgresql/data
+      - ./volumenes/datos-pg:/var/lib/postgresql/data
     networks:
       - network1
 
@@ -35,11 +28,9 @@ services:
     ports:
       - "80:80"
     networks:
-      - network2
       - network1
     depends_on:
       - baseDatos
 
 networks:
   network1:
-  network2:

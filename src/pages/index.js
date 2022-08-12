@@ -1,11 +1,14 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
-import Footer from '../components/footer'
+import Login from '/src/components/login'
+import Logged from '/src/components/logged'
+import useUser from '/src/hooks/useUser'
 
-import styles from '../styles/Home.module.css'
+import styles from '/src/styles/Home.module.css'
 
 export default function Home() {
+  const { isLogged } = useUser()
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,44 +24,13 @@ export default function Home() {
           labores del día a día en el hogar. Si lo deseas también puedes ser parte de
           nuestro equipo de trabajo.
         </p>
-        <div className={styles.grid}>
-          <nav>
-            <Link href="/userRegister">
-              <a>
-                <div className={styles.card}>
-                  <h2>Registrarse como usuario &rarr;</h2>
-                  <p>Encuentra en poco tiempo al trabajador que necesitas.</p>
-                </div>
-              </a>
-            </Link>
-          </nav>
-
-          <nav>
-            <Link href="/workerRegister">
-              <a>
-                <div className={styles.card}>
-                  <h2>Registrarse como trabajador &rarr;</h2>
-                  <p>Sé parte de nuestro equipo y trabaja con nosotros.</p>
-                </div>
-              </a>
-            </Link>
-          </nav>
-
-          <nav>
-
-            <Link href="/login">
-              <a>
-                <div className={styles.card}>
-                  <h2>Inicia sesión</h2>
-                  <p>Si ya tienes una cuenta.</p>
-                </div>
-              </a>
-            </Link>
-          </nav>
-        </div>
+        {
+          (isLogged)
+            ? <Logged />
+            : <Login />
+        }
       </main >
 
-      <Footer />
     </div >
   )
 }

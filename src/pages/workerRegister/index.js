@@ -20,6 +20,11 @@ export default function WorkerRegister() {
     userRegister(values)
   }
 
+  const handleCancel = (evt) => {
+    evt.preventDefault()
+    router.push("/")
+  }
+
   return (
     <div className={styles.register}>
       <Formik
@@ -106,6 +111,7 @@ export default function WorkerRegister() {
                 onChange={handleChange}
               />
               <button>Registrar trabajador</button>
+              <button onClick={handleCancel}>Cancelar</button>
             </form>
           )
         }
