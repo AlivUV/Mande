@@ -7,6 +7,7 @@ Proyecto presentado por:
 <br />Álvaro Portocarrero   (1922171)
 
 Para la materia de Bases de Datos, Universidad del Valle.
+Hay dos ramas dentro del repositorio, en una de ellas (documentos), se encuentran los archivos de Manual de Usuario y el Informe final del proyecto.
 
 ## Descripción
 Mande, es un emprendimiento que permite conseguir personas
