@@ -49,6 +49,9 @@ export default function UserRegister() {
           ({ handleChange, handleSubmit }) =>
           (
             <form onSubmit={handleSubmit}>
+              <div className="custom-file">
+                <input type="file" className="custom-file-input" id="image" />
+              </div>
               <input
                 name="nombres"
                 placeholder="Nombres"

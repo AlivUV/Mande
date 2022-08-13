@@ -29,7 +29,7 @@ export default function useUser() {
       })
       .catch(error => console.error(`Error: ${error}`))
 
-  }, [setJWT])
+  }, [setJWT, setUserType])
 
   const logout = useCallback(() => {
     setJWT(null)

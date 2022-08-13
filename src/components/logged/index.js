@@ -1,5 +1,7 @@
 import useUser from '/src/hooks/useUser'
 
+import UserHome from '../userHome'
+
 import styles from '/src/styles/Home.module.css'
 
 export default function Inicio() {
@@ -18,5 +20,6 @@ export default function Inicio() {
       </div>
     </nav>
 
+    <UserHome />
   </div>
 }

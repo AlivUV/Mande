@@ -49,6 +49,7 @@ export default function WorkerRegister() {
           ({ handleChange, handleSubmit }) =>
           (
             <form onSubmit={handleSubmit}>
+              <input type="file" />
               <input
                 name="nombres"
                 placeholder="Nombres"

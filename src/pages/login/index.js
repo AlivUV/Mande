@@ -51,19 +51,17 @@ export default function Login() {
                 onChange={handleChange}
                 name="usuario"
               />
-              <div>
-                <input
-                  id="passwordField"
-                  type="password"
-                  placeholder="Digite su contraseña"
-                  onChange={handleChange}
-                  name="contrasena"
-                />
-                <button onClick={handleShow}>👁️</button>
-              </div>
+              <input
+                id="passwordField"
+                type="password"
+                placeholder="Digite su contraseña"
+                onChange={handleChange}
+                name="contrasena"
+              />
               <div>
                 <button>Login</button>
                 <button onClick={handleCancel}>Cancelar</button>
+                <button onClick={handleShow}>👁️</button>
               </div>
             </form>
           )
