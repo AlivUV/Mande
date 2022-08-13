@@ -31,21 +31,34 @@ CREATE TABLE IF NOT EXISTS trabajador(
     FOREIGN KEY (telefono_trabajador) REFERENCES usuarios(telefono_usuario)
 );
 
+CREATE TABLE IF NOT EXISTS labor(
+    id_labor SERIAL PRIMARY KEY NOT NULL,
+    trabajador_labor VARCHAR(32),
+    tipoServicio_labor VARCHAR(32),
+    descripcion_servicio VARCHAR(32),
+    FOREIGN KEY (trabajador_labor) REFERENCES usuarios(telefono_usuario)
+);
+
 CREATE TABLE IF NOT EXISTS servicios(
     id_servicio SERIAL PRIMARY KEY NOT NULL,
+    calificacion_servicio INTEGER,
     trabajador_servicio VARCHAR(16),
     cliente_servicio VARCHAR(16),
     nombre_servicio VARCHAR(32),
     estado_servicio VARCHAR(32),
-    descripcion_servicio VARCHAR(64),
-    precioHora__servicio INTEGER
+    notas_servicio VARCHAR(64),
+    FOREIGN KEY (cliente_servicio) REFERENCES usuarios(telefono_usuario),
+    FOREIGN KEY (trabajador_servicio) REFERENCES usuarios(telefono_usuario)
 );
 
 CREATE TABLE IF NOT EXISTS pagos(
     id_pago SERIAL PRIMARY KEY NOT NULL,
     servicio_pago INTEGER,
     medio_pago VARCHAR(32),
-    total_pago INTEGER
+    precioHora_servicio INTEGER,
+    tiempo_servicio INTEGER,
+    total_pago INTEGER,
+    FOREIGN KEY (servicio_pago) REFERENCES servicios(id_servicio)
 );
 
 INSERT INTO 

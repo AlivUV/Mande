@@ -17,7 +17,8 @@ export default function UserRegister() {
   }, [isLogged, router])
 
   const handleSubmit = values => {
-    userRegister(values)
+    console.log(values)
+    //userRegister(values)
   }
 
   const handleCancel = (evt) => {
@@ -30,6 +31,7 @@ export default function UserRegister() {
       <Formik
         initialValues=
         {{
+          recibo: "",
           nombres: "",
           apellidos: "",
           usuario: "",
@@ -50,65 +52,77 @@ export default function UserRegister() {
           (
             <form onSubmit={handleSubmit}>
               <div className="custom-file">
-                <input type="file" className="custom-file-input" id="image" />
+                <input
+                  required=""
+                  type="file"
+                  placeholder="Recibo público"
+                  onChange={handleChange} />
               </div>
               <input
+                required=""
                 name="nombres"
                 placeholder="Nombres"
                 onChange={handleChange}
               />
               <input
+                required=""
                 name="apellidos"
                 placeholder="Apellidos"
                 onChange={handleChange}
               />
               <input
+                required=""
                 name="usuario"
                 placeholder="Nombre de usuario"
                 onChange={handleChange}
               />
               <input
+                required=""
                 type="password"
                 name="contrasena"
                 placeholder="Contraseña"
                 onChange={handleChange}
               />
               <input
+                required=""
                 name="correo"
                 placeholder="Correo electrónico"
                 onChange={handleChange}
               />
               <input
+                required=""
                 name="direccion"
                 placeholder="Dirección"
                 onChange={handleChange}
               />
               <input
+                required=""
                 name="telefono"
                 placeholder="Número telefónico"
                 onChange={handleChange}
               />
+              <select required="" name="pais" onChange={handleChange}>
+                <option value="">Elegir país...</option>
+                <option>Colombia</option>
+              </select>
+              <select required="" name="departamento" onChange={handleChange}>
+                <option value="">Elegir departamento...</option>
+                <option>Valle del Cauca</option>
+              </select>
               <input
-                name="pais"
-                placeholder="País"
-                onChange={handleChange}
-              />
-              <input
-                name="departamento"
-                placeholder="Departamento"
-                onChange={handleChange}
-              />
-              <input
+                required=""
                 name="tipoTarjeta"
                 placeholder="Tipo de tarjeta"
                 onChange={handleChange}
               />
               <input
+                required=""
                 name="nombreTarjeta"
                 placeholder="Nombre en la tarjeta"
                 onChange={handleChange}
               />
               <input
+                required=""
                 name="numeroTarjeta"
                 placeholder="Número de la tarjeta"
                 onChange={handleChange}

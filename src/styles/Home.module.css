@@ -97,9 +97,11 @@
 }
 
 .login {
-  position: absolute;
-  top: 40%;
-  left: 40%;
+  position: fixed;
+  top: 35%;
+  left: 0;
+  right: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -149,9 +151,10 @@
 }
 
 .register {
-  position: absolute;
+  position: fixed;
   top: 25%;
-  left: 40%;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -181,7 +184,9 @@
   max-width: 450px;
 }
 
-.register input {
+.register input,
+.register select {
+  width: 175px;
   margin: 10px;
   border-radius: 5px;
 }

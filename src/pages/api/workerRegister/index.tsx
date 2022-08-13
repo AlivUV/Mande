@@ -69,7 +69,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             '${cedula}',
             '${foto}',
             '${fotoDocumento}'
-          );
+          )
+          RETURNING *;
         `
 
         const { rowcount, rows } = await conn.query(query)

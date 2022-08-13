@@ -38,9 +38,6 @@ export default function useUser() {
   const userRegister = useCallback(data => {
     const URL = "/api/userRegister"
 
-    console.log('AAAAAAAAAAAAAAAAAAAAAAAA')
-    console.log(data)
-
     fetch(
       URL,
       {
@@ -51,7 +48,6 @@ export default function useUser() {
       .then(response => response.json())
       .then(data => {
         if (data.estado === 200)
-          //setJWT('Prueba.')
           return console.log('SUCCESS')
 
       })

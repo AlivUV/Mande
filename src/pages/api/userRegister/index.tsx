@@ -63,7 +63,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           VALUES (
             '${telefono}',
             '${recibo}'
-          );
+          )
+          RETURNING *;
         `
 
         const { rowcount, rows } = await conn.query(query)
