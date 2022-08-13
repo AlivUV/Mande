@@ -10,14 +10,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   switch (method) {
     case 'POST':
       try {
-        const query = `SELECT contrasena, tipoUsuario FROM usuarios WHERE usuario = '${usuario}'`
+        const query = `SELECT contrasena_usuario, tipoUsuario FROM usuarios WHERE usuario = '${usuario}'`
         const { rows } = await conn.query(query)
 
         if (rows.length === 0)
           return res.status(404).json({ estado: 404, mensaje: 'Usuario incorrecto' })
-        console.log(rows[0].contrasena)
 
-        if (contrasena === rows[0].contrasena)
+        if (contrasena === rows[0].contrasena_usuario)
           return res.status(200).json({ estado: 200, mensaje: 'Correcto', userType: rows[0].tipousuario })
 
         return res.status(400).json({ estado: 400, mensaje: 'Contraseña incorrecta' })

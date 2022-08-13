@@ -28,18 +28,18 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       try {
         const query = `
           INSERT INTO usuarios (
-            nombres,
-            apellidos,
+            nombres_usuario,
+            apellidos_usuario,
             usuario,
-            contrasena,
-            email,
-            direccion,
-            telefono,
-            pais,
-            departamento,
-            tipotarjeta,
-            nombretarjeta,
-            numerotarjeta
+            contrasena_usuario,
+            email_usuario,
+            direccion_usuario,
+            telefono_usuario,
+            pais_usuario,
+            departamento_usuario,
+            tipotarjeta_usuario,
+            nombretarjeta_usuario,
+            numerotarjeta_usuario
           )
           VALUES (
             '${nombres}',
@@ -59,9 +59,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         `
 
         const { rowcount, rows } = await conn.query(query)
-
-        console.log('IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII')
-        console.log(rows[0].usuario)
 
         if (rowcount === 0)
           return res.status(400).json({ estado: 400, mensaje: 'Error al crear al usuario' })
