@@ -111,8 +111,10 @@ export default function WorkerRegister() {
                 placeholder="Número de la tarjeta"
                 onChange={handleChange}
               />
-              <button>Registrar trabajador</button>
-              <button onClick={handleCancel}>Cancelar</button>
+              <div className={styles.divBotones}>
+                <button>Registrar trabajador</button>
+                <button onClick={handleCancel}>Cancelar</button>
+              </div>
             </form>
           )
         }

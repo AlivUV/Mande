@@ -1,0 +1,34 @@
+services:
+
+  baseDatos:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      DATABASE_HOST: 127.0.0.1
+      POSTGRES_USER: karen
+      POSTGRES_PASSWORD: karen
+      POSTGRES_DB: baseDatos
+    volumes:
+      - ./sql/inicio.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - ./volumenes/datos-pg:/var/lib/postgresql/data
+    networks:
+      - network1
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "karen@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "karen"
+    volumes:
+      - ./volumenes/pgadmin4:/var/lib/pgadmin
+    ports:
+      - "80:80"
+    networks:
+      - network1
+    depends_on:
+      - baseDatos
+
+networks:
+  network1:

@@ -25,14 +25,8 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       }
 
     default:
-      try {
-        res.status(200).json('Método inválido.')
-        break
-
-      } catch (error) {
-
-        res.status(400).json(error)
-      }
+      res.status(404).json('Método inválido.')
+      break
   }
 
 }

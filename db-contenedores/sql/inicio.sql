@@ -15,13 +15,13 @@ CREATE TABLE IF NOT EXISTS usuarios(
     tipoUsuario VARCHAR(32)
 );
 
-CREATE TABLE IF NOT EXISTS cliente(
+CREATE TABLE IF NOT EXISTS clientes(
     telefono_cliente VARCHAR(16) PRIMARY KEY NOT NULL,
     recibo_cliente BYTEA,
     FOREIGN KEY (telefono_cliente) REFERENCES usuarios(telefono_usuario)
 );
 
-CREATE TABLE IF NOT EXISTS trabajador(
+CREATE TABLE IF NOT EXISTS trabajadores(
     telefono_trabajador VARCHAR(16) PRIMARY KEY NOT NULL,
     cedula_trabajador VARCHAR(32),
     estado VARCHAR(32),
@@ -31,11 +31,12 @@ CREATE TABLE IF NOT EXISTS trabajador(
     FOREIGN KEY (telefono_trabajador) REFERENCES usuarios(telefono_usuario)
 );
 
-CREATE TABLE IF NOT EXISTS labor(
+CREATE TABLE IF NOT EXISTS labores(
     id_labor SERIAL PRIMARY KEY NOT NULL,
-    trabajador_labor VARCHAR(32),
+    trabajador_labor VARCHAR(16),
     tipoServicio_labor VARCHAR(32),
-    descripcion_servicio VARCHAR(32),
+    descripcion_labor VARCHAR(64),
+    predcioHora_labor INTEGER,
     FOREIGN KEY (trabajador_labor) REFERENCES usuarios(telefono_usuario)
 );
 
@@ -68,5 +69,5 @@ VALUES ('Al', 'Port', 'Alp', 'contra', 'alp@mail.com', '123', '213', '3214567898
 	      'Colombia', 'Valle', 'Debito', 'Al Port', '1234567890', 'Usuario');
 
 INSERT INTO
-cliente (telefono_cliente)
+clientes (telefono_cliente)
 VALUES ('3214567898');

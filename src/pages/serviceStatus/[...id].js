@@ -16,7 +16,7 @@ export default function Status({ id }) {
     </nav>
 
     <div className={styles.card}>
-      <h2>Servicio {id} &rarr;</h2>
+      <h2>Servicio {id[0]} &rarr;</h2>
     </div>
   </>
 }

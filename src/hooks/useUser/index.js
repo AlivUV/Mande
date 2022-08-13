@@ -1,16 +1,18 @@
-import { useCallback, useContext, useEffect } from 'react'
+import { useCallback, useContext } from 'react'
 
-import Context from '../context/userContext'
+import Context from '/src/context/userContext'
 
 export default function useUser() {
   const { jwt, setJWT, setUserType } = useContext(Context)
 
   const login = useCallback((usuario, contrasena) => {
-    const URL = "/api/login"
+    const URL = '/api/login'
     const data = {
       usuario: usuario,
       contrasena: contrasena
     }
+
+    console.log('AAAAAAAAAAAAAAAAAAA')
 
     fetch(
       URL,
@@ -36,7 +38,7 @@ export default function useUser() {
   }, [setJWT])
 
   const userRegister = useCallback(data => {
-    const URL = "/api/userRegister"
+    const URL = '/api/userRegister'
 
     fetch(
       URL,
@@ -56,7 +58,7 @@ export default function useUser() {
   }, [])
 
   const workerRegister = useCallback((usuario, contrasena) => {
-    const URL = "/api/login"
+    const URL = '/api/login'
     const data = {
       usuario: usuario,
       contrasena: contrasena

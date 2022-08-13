@@ -82,15 +82,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       }
 
     default:
-      try {
-        res.status(200).json('Método inválido.')
-
-      } catch (error) {
-        res.status(400).json(error)
-
-      } finally {
-        break
-      }
+      res.status(404).json('Método inválido.')
+      break
 
   }
 

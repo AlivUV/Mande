@@ -2,16 +2,14 @@ import { useRouter } from "next/Router"
 import { useCallback, useEffect, useState } from "react"
 import { Formik } from 'formik'
 
-import styles from '../../styles/Home.module.css'
+import styles from '/src/styles/Home.module.css'
 
-import useUser from "../../hooks/useUser"
+import useUser from "/src/hooks/useUser"
 
 export default function Login() {
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
   const router = useRouter()
 
-  const { login, logout, isLogged } = useUser()
+  const { login, isLogged } = useUser()
 
   useEffect(() => {
     if (isLogged) router.push("/")
@@ -58,7 +56,7 @@ export default function Login() {
                 onChange={handleChange}
                 name="contrasena"
               />
-              <div>
+              <div className={styles.divBotones}>
                 <button>Login</button>
                 <button onClick={handleCancel}>Cancelar</button>
                 <button onClick={handleShow}>👁️</button>

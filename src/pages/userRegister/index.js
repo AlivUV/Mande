@@ -51,7 +51,7 @@ export default function UserRegister() {
           ({ handleChange, handleSubmit }) =>
           (
             <form onSubmit={handleSubmit}>
-              <div className="custom-file">
+              <div>
                 <input
                   required=""
                   type="file"
@@ -127,9 +127,12 @@ export default function UserRegister() {
                 placeholder="Número de la tarjeta"
                 onChange={handleChange}
               />
-              <button>Registrar usuario</button>
-              <button onClick={handleCancel}>Cancelar</button>
+              <div className={styles.divBotones}>
+                <button>Registrar usuario</button>
+                <button onClick={handleCancel}>Cancelar</button>
+              </div>
             </form>
+
           )
         }
       </Formik>

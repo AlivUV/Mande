@@ -1,19 +1,15 @@
-import Head from 'next/head'
-
 import Login from '/src/components/login'
-import Logged from '/src/components/logged'
 import useUser from '/src/hooks/useUser'
 
 import styles from '/src/styles/Home.module.css'
+
+import UserHome from '../components/userHome'
 
 export default function Home() {
   const { isLogged } = useUser()
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Mande</title>
-      </Head>
       <main className={styles.main}>
         <h1 className={styles.title}>
           Bienvenido a <span className={styles.highlight}>mande!</span>
@@ -26,7 +22,7 @@ export default function Home() {
         </p>
         {
           (isLogged)
-            ? <Logged />
+            ? <UserHome />
             : <Login />
         }
       </main >

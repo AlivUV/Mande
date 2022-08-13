@@ -30,15 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/userRegister": [
+    "/serviceHistory": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/userRegister.js"
-    ],
-    "/workerRegister": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/workerRegister.js"
+      "static/chunks/pages/serviceHistory.js"
     ]
   },
   "ampFirstPages": []
