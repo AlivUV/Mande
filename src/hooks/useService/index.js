@@ -12,6 +12,7 @@ export default function useService() {
 
   return {
     availableServices,
+    setAvailableServices,
     addServices
   }
 }
