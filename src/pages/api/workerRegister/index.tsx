@@ -18,7 +18,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     tipoTarjeta,
     nombreTarjeta,
     numeroTarjeta,
-    recibo
+    cedula,
+    foto,
+    fotoDocumento
   } = JSON.parse(body)
 
   switch (method) {
@@ -53,16 +55,20 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             '${tipoTarjeta}',
             '${nombreTarjeta}',
             '${numeroTarjeta}',
-            'Cliente'
+            'Trabajador'
           );
 
-          INSERT INTO clientes (
-            telefono_cliente,
-            recibo_cliente
+          INSERT INTO trabajadores (
+            telefono_trabajador,
+            cedula_trabajador,
+            foto_trabajador,
+            fotoDocumento_trabajador
           )
           VALUES (
             '${telefono}',
-            '${recibo}'
+            '${cedula}',
+            '${foto}',
+            '${fotoDocumento}'
           );
         `
 
