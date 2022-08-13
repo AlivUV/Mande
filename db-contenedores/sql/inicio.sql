@@ -39,7 +39,13 @@ CREATE TABLE IF NOT EXISTS servicios(
     estado_servicio VARCHAR(32),
     descripcion_servicio VARCHAR(64),
     precioHora__servicio INTEGER
+);
 
+CREATE TABLE IF NOT EXISTS pagos(
+    id_pago SERIAL PRIMARY KEY NOT NULL,
+    servicio_pago INTEGER,
+    medio_pago VARCHAR(32),
+    total_pago INTEGER
 );
 
 INSERT INTO 
