@@ -24,7 +24,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   switch (method) {
     case 'PUT':
       try {
-        const query = `
+        const query1 = `
           INSERT INTO usuarios (
             nombres_usuario,
             apellidos_usuario,
@@ -54,9 +54,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             '${nombreTarjeta}',
             '${numeroTarjeta}',
             'Cliente'
-          );
+          )
+          RETURNING *;
+        `
 
-          INSERT INTO clientes (
+        const query2 = `
+        INSERT INTO clientes (
             telefono_cliente,
             recibo_cliente
           )
@@ -67,12 +70,21 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           RETURNING *;
         `
 
-        const { rowcount, rows } = await conn.query(query)
+        const res1 = await conn.query(query1)
 
-        if (rowcount === 0)
+        const res2 = await conn.query(query2)
+
+        if (res1.rowcount === 0)
           return res.status(400).json({ estado: 400, mensaje: 'Error al crear al usuario' })
 
-        return res.status(200).json({ estado: 200, mensaje: 'Usuario creado con éxito', usuario: rows[0].usuario })
+        if (res2.rowcount === 0)
+          return res.status(400).json({ estado: 400, mensaje: 'Error al crear al cliente' })
+
+        return res.status(200).json({
+          estado: 200,
+          mensaje: 'Usuario creado con éxito',
+          usuario: res1.rows[0].usuario
+        })
 
       } catch (error) {
         res.status(400).json(error)

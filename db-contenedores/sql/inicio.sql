@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS labores(
     trabajador_labor VARCHAR(16),
     tipoServicio_labor VARCHAR(32),
     descripcion_labor VARCHAR(64),
-    predcioHora_labor INTEGER,
+    precioHora_labor INTEGER,
     FOREIGN KEY (trabajador_labor) REFERENCES usuarios(telefono_usuario)
 );
 
@@ -66,8 +66,22 @@ INSERT INTO
 usuarios (nombres_usuario, apellidos_usuario, usuario, contrasena_usuario, email_usuario, latitud_usuario, longitud_usuario, 
           telefono_usuario, pais_usuario, departamento_usuario, tipoCuenta_usuario, nombreTarjeta_usuario, numeroTarjeta_usuario, tipoUsuario) 
 VALUES ('Al', 'Port', 'Alp', 'contra', 'alp@mail.com', '123', '213', '3214567898',
-	      'Colombia', 'Valle', 'Debito', 'Al Port', '1234567890', 'Usuario');
+	      'Colombia', 'Valle', 'Debito', 'Al Port', '1234567890', 'Cliente');
+
+INSERT INTO 
+usuarios (nombres_usuario, apellidos_usuario, usuario, contrasena_usuario, email_usuario, latitud_usuario, longitud_usuario, 
+          telefono_usuario, pais_usuario, departamento_usuario, tipoCuenta_usuario, nombreTarjeta_usuario, numeroTarjeta_usuario, tipoUsuario) 
+VALUES ('Kar', 'Mort', 'Kart', 'contra', 'Kart@mail.com', '123', '213', '3124567898',
+	      'Colombia', 'Valle', 'Debito', 'Al Port', '1234567890', 'Trabajador');
 
 INSERT INTO
 clientes (telefono_cliente)
 VALUES ('3214567898');
+
+INSERT INTO
+trabajadores (telefono_trabajador, cedula_trabajador, calificacion_trabajador)
+VALUES ('3124567898', '1005318426', 0);
+
+INSERT INTO
+labores (trabajador_labor, tipoServicio_labor, descripcion_labor, precioHora_labor)
+VALUES ('3124567898', 'Paseo de mascotas', 'Se pasean mascotas', 20000);
