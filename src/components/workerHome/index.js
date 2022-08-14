@@ -10,10 +10,7 @@ export default function WorkerHome() {
   return <div className={styles.gridWorker}>
 
     <label>
-        <div className={styles.labelDinero}>
-        Dinero ganado:  
-        </div>
-                                            
+        Dinero ganado:                         
     </label>
 
     <nav>
