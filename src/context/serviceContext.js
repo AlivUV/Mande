@@ -3,7 +3,13 @@ import React, { useState } from 'react'
 const Context = React.createContext()
 
 export function ServiceContextProvider({ children }) {
-  const [availableServices, setAvailableServices] = useState(null)
+  const [availableServices, setAvailableServices] = useState([
+    {
+      nombre,
+      descripción,
+
+    }
+  ])
 
   return (
     <Context.Provider value={{ availableServices, setAvailableServices }}>

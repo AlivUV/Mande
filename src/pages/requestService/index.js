@@ -1,22 +1,18 @@
 import { useRouter } from 'next/Router'
 import { Formik } from 'formik'
 
-import useUser from '/src/hooks/useUser'
 import useService from '/src/hooks/useService'
 
 import styles from 'src/styles/Home.module.css'
 
-export default function UserRegister() {
+export default function RequestService() {
 
-  const { login, isLogged } = useUser()
-  const { updateServices } = useService()
+  const { availableServices } = useService()
 
   const router = useRouter()
 
   const handleSubmit = values => {
-    updateServices()
-    login('Alp', 'contra')
-    //userRegister(values)
+
   }
 
   const handleCancel = evt => {
@@ -47,13 +43,9 @@ export default function UserRegister() {
               </select>
               <select required="" name="departamento" onChange={handleChange}>
                 {
-                  isLogged
-                    ? <option value="">
-                      <div>
-                        Hi
-                      </div>
-                    </option>
-                    : <option value="">Elegir trabajador... </option>
+                  availableServices.map(singleService => {
+
+                  })
                 }
               </select>
               <div className={styles.divBotones}>
