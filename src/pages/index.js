@@ -21,9 +21,9 @@ export default function Home() {
           nuestro equipo de trabajo.
         </p>
         {
-          (isLogged)
-            ? <UserHome />
-            : <Login />
+          (!isLogged)
+            ? <Login />
+            : <UserHome />
         }
       </main >
 
