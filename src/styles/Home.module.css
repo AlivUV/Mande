@@ -85,11 +85,10 @@
   max-width: 800px;
 }
 
-.gridWorker
-{
-  position: fixed;
-  top: 10%;
-  left: 20%;
+.gridWorker {
+  position: relative;
+  top: 0;
+  left: 0;
   right: 0;
   display: flex;
   align-items: center;
@@ -100,13 +99,12 @@
   justify-content: center;
 }
 
-.labelDinero
-{
-  font-weight: bold;
+.gridWorker label {
   position: fixed;
   top: 8%;
   left: 5%;
   right: 0;
+  font-weight: bold;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
