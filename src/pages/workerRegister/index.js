@@ -41,7 +41,9 @@ export default function WorkerRegister() {
           departamento: "",
           tipoTarjeta: "",
           nombreTarjeta: "",
-          numeroTarjeta: ""
+          numeroTarjeta: "",
+          labor: "",
+          precio: ""
         }}
         onSubmit={handleSubmit}
       >
@@ -109,6 +111,18 @@ export default function WorkerRegister() {
               <input
                 name="numeroTarjeta"
                 placeholder="Número de la tarjeta"
+                onChange={handleChange}
+              />
+              <label for = "name">
+               ⠀⠀⠀⠀⠀⠀⠀⠀⠀                                  
+              </label>
+              <select required="" name="labor" onChange={handleChange}>
+                <option value="">Elegir la labor a realizar</option>
+                <option>Jardinería</option>
+              </select>
+              <input
+                name="precio"
+                placeholder="Ingrese su precio por hora"
                 onChange={handleChange}
               />
               <div className={styles.divBotones}>
