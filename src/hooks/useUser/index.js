@@ -3,7 +3,7 @@ import { useCallback, useContext } from 'react'
 import Context from '/src/context/userContext'
 
 export default function useUser() {
-  const { jwt, setJWT, userType, setUserType } = useContext(Context)
+  const { jwt, setJWT, setUserType } = useContext(Context)
 
   const login = useCallback((usuario, contrasena) => {
     const URL = '/api/login'
@@ -83,7 +83,6 @@ export default function useUser() {
 
   return {
     isLogged: Boolean(jwt),
-    userType,
     login,
     logout,
     userRegister,

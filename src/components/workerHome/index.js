@@ -10,7 +10,7 @@ export default function WorkerHome() {
   return <div className={styles.gridWorker}>
 
     <label>
-      Dinero ganado:
+        Dinero ganado:                         
     </label>
 
     <nav>
@@ -21,24 +21,24 @@ export default function WorkerHome() {
     </nav>
 
     <nav>
-      <a>
-        <div className={styles.card}>
-          <h2>Trabajos actuales &rarr;</h2>
-          <p>Mira los servicios que estás realizando por el momento.</p>
-        </div>
-      </a>
+        <a>
+          <div className={styles.card}>
+            <h2>Trabajos actuales &rarr;</h2>
+            <p>Mira los servicios que estás realizando por el momento.</p>
+          </div>
+        </a>
     </nav>
 
     <nav>
-      <a>
-        <div className={styles.card}>
-          <h2>Historial de servicios &rarr;</h2>
-          <p>Revisa los servicios que has completado.</p>
-        </div>
-      </a>
+        <a>
+          <div className={styles.card}>
+            <h2>Historial de servicios &rarr;</h2>
+            <p>Revisa los servicios que has completado.</p>
+          </div>
+        </a>
     </nav>
 
-
+  
 
   </div>
 }
