@@ -5,8 +5,8 @@ const Context = React.createContext()
 export function ServiceContextProvider({ children }) {
   const [availableServices, setAvailableServices] = useState([
     {
-      nombre,
-      descripción,
+      nombre: 'Paseo de mascotas',
+      descripción: 'Se pasean mascotas',
 
     }
   ])

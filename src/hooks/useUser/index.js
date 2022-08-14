@@ -3,7 +3,7 @@ import { useCallback, useContext } from 'react'
 import Context from '/src/context/userContext'
 
 export default function useUser() {
-  const { jwt, setJWT, setUserType } = useContext(Context)
+  const { jwt, setJWT, userInfo, setUserInfo } = useContext(Context)
 
   const login = useCallback((usuario, contrasena) => {
     const URL = '/api/login'
@@ -24,14 +24,15 @@ export default function useUser() {
       .then(response => response.json())
       .then(data => {
         if (data.estado === 200) {
+          console.log(data)
           setJWT('Logueado.')
-          setUserType(data.userType)
+          setUserInfo({ tipoUsuario: data.userType })
         }
 
       })
       .catch(error => console.error(`Error: ${error}`))
 
-  }, [setJWT, setUserType])
+  }, [setJWT, setUserInfo])
 
   const logout = useCallback(() => {
     setJWT(null)
@@ -85,6 +86,7 @@ export default function useUser() {
     isLogged: Boolean(jwt),
     login,
     logout,
+    userInfo,
     userRegister,
     workerRegister
   }

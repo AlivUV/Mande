@@ -28,6 +28,14 @@
   line-height: 1.5;
 }
 
+.divBotones {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+}
+
 .container {
   padding: 0 2rem;
 }
@@ -50,12 +58,17 @@
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
+  padding: 1rem 0;
   justify-content: center;
   align-items: center;
+  border-top: 1px solid #eaeaea;
+  background-color: #000;
 }
 
 .footer b {
@@ -69,6 +82,42 @@
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
+}
+
+.gridWorker {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  align-items: center;
+  justify-content: center;
+}
+
+.gridWorker label {
+  position: fixed;
+  top: 8%;
+  left: 5%;
+  right: 0;
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+
+
+
+
+
+
+
+
+
+
+  align-items: left;
 }
 
 .header {
@@ -92,9 +141,11 @@
 }
 
 .login {
-  position: absolute;
-  top: 40%;
-  left: 40%;
+  position: fixed;
+  top: 35%;
+  left: 0;
+  right: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -144,6 +195,10 @@
 }
 
 .register {
+  position: fixed;
+  top: 25%;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -173,7 +228,9 @@
   max-width: 450px;
 }
 
-.register input {
+.register input,
+.register select {
+  width: 175px;
   margin: 10px;
   border-radius: 5px;
 }
