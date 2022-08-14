@@ -1,0 +1,47 @@
+import styles from '/src/styles/Home.module.css'
+
+export default function WorkerHome() {
+
+  const handleClose = (evt) => {
+    evt.preventDefault()
+    logout()
+  }
+
+  return <div className={styles.gridWorker}>
+
+    <label>
+        <div className={styles.labelDinero}>
+        Dinero ganado:  
+        </div>
+                                            
+    </label>
+
+    <nav>
+      <div className={styles.card}>
+        <h2>Trabajos pendientes &rarr;</h2>
+        <p>Acceso a los trabajos que puedes realizar.</p>
+      </div>
+    </nav>
+
+    <nav>
+        <a>
+          <div className={styles.card}>
+            <h2>Trabajos actuales &rarr;</h2>
+            <p>Mira los servicios que estás realizando por el momento.</p>
+          </div>
+        </a>
+    </nav>
+
+    <nav>
+        <a>
+          <div className={styles.card}>
+            <h2>Historial de servicios &rarr;</h2>
+            <p>Revisa los servicios que has completado.</p>
+          </div>
+        </a>
+    </nav>
+
+  
+
+  </div>
+}
