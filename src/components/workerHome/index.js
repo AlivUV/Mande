@@ -1,6 +1,9 @@
+import useUser from '/src/hooks/useUser'
+
 import styles from '/src/styles/Home.module.css'
 
 export default function WorkerHome() {
+  const { logout } = useUser()
 
   const handleClose = (evt) => {
     evt.preventDefault()
