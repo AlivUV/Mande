@@ -107,16 +107,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-
-
-
-
-
-
-
-
-
-
   align-items: left;
 }
 
@@ -195,7 +185,7 @@
 }
 
 .register {
-  position: fixed;
+  position: absolute;
   top: 25%;
   left: 0;
   right: 0;

@@ -1,5 +1,6 @@
 import { useRouter } from 'next/Router'
 import { Formik } from 'formik'
+import Link from 'next/link'
 
 import useService from '/src/hooks/useService'
 
@@ -7,7 +8,11 @@ import styles from 'src/styles/Home.module.css'
 
 export default function RequestService() {
 
-  const { availableServices } = useService()
+  //const { availableServices } = useService()
+
+  const availableServices = [
+    { id: 1, nombre: 'Paseo de mascotas', descripcion: 'Se pasean mascotas' }
+  ]
 
   const router = useRouter()
 
@@ -21,41 +26,33 @@ export default function RequestService() {
   }
 
   return (
-    <div className={styles.register}>
-      <Formik
-        initialValues=
-        {{
-          tipoServicio: ""
-        }}
-        onSubmit={handleSubmit}
-      >
-        {
-          ({ handleChange, handleSubmit }) =>
-          (
-            <form onSubmit={handleSubmit}>
-              <select
-                required=""
-                name="tipoServicio"
-                onChange={evt => { handleChange(evt) }}
-              >
-                <option>Elegir servicio...</option>
-                <option>Colombia</option>
-              </select>
-              <select required="" name="departamento" onChange={handleChange}>
-                {
-                  availableServices.map(singleService => {
+    <>
+      <Link href='/'>
+        <a>
+          <div className={styles.card}>
+            <h2>Volver al inicio &larr;</h2>
+          </div>
+        </a>
+      </Link>
 
-                  })
-                }
-              </select>
-              <div className={styles.divBotones}>
-                <button>Solitar servicio</button>
-                <button onClick={handleCancel}>Cancelar</button>
-              </div>
-            </form>
-          )
-        }
-      </Formik>
-    </div >
+      <div className={styles.register}>
+
+        <h1>Seleccionar servicio</h1>
+        <div className={styles.grid}>
+          {
+            availableServices.map(singleService => (
+              <Link href={`/requestService/${singleService.nombre.replace(/\s+/g, "")}`} key={singleService.id}>
+                <a>
+                  <div className={styles.card}>
+                    <h2>{singleService.nombre} &rarr;</h2>
+                    <p>{singleService.descripcion}</p>
+                  </div>
+                </a>
+              </Link>
+            ))
+          }
+        </div>
+      </div>
+    </>
   );
 }

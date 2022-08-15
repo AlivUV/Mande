@@ -2,8 +2,12 @@ import { useCallback, useContext } from 'react'
 
 import Context from '/src/context/userContext'
 
+import useService from '../useService'
+
 export default function useUser() {
   const { jwt, setJWT, userInfo, setUserInfo } = useContext(Context)
+
+  const { addServices } = useService()
 
   const login = useCallback((usuario, contrasena) => {
     const URL = '/api/login'
@@ -11,8 +15,6 @@ export default function useUser() {
       usuario: usuario,
       contrasena: contrasena
     }
-
-    console.log('AAAAAAAAAAAAAAAAAAA')
 
     fetch(
       URL,
@@ -22,17 +24,31 @@ export default function useUser() {
       }
     )
       .then(response => response.json())
-      .then(data => {
-        if (data.estado === 200) {
-          console.log(data)
-          setJWT('Logueado.')
-          setUserInfo({ tipoUsuario: data.userType })
+      .then(({ estado, mensaje, userType }) => {
+        switch (estado) {
+          case 200:
+            setUserInfo({ tipoUsuario: userType })
+            setJWT('Logueado.')
+            addServices(
+              [
+                { nombre: 'Paseo de mascotas', descripcion: 'Se pasean mascotas' }
+              ])
+            break
+          case 404:
+            console.log('Usuario incorrecto.')
+            break
+          case 400:
+            console.log('Contraseña incorrecta.')
+            break
+          default:
+            console.log('Error.')
+            break
         }
 
       })
       .catch(error => console.error(`Error: ${error}`))
 
-  }, [setJWT, setUserInfo])
+  }, [setJWT, setUserInfo, addServices])
 
   const logout = useCallback(() => {
     setJWT(null)

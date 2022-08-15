@@ -13,7 +13,7 @@ export default function WorkerHome() {
   return <div className={styles.gridWorker}>
 
     <label>
-      Dinero ganado:
+      Dinero ganado: ${'25000'}
     </label>
 
     <nav>

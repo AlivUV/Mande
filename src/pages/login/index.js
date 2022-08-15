@@ -12,7 +12,9 @@ export default function Login() {
   const { login, isLogged } = useUser()
 
   useEffect(() => {
-    if (isLogged) router.push("/")
+    if (isLogged) {
+      router.push("/")
+    }
   }, [isLogged, router])
 
   const handleSubmit = ({ usuario, contrasena }) => {

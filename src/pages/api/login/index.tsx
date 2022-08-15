@@ -7,16 +7,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { method, body } = req
   const { usuario, contrasena } = JSON.parse(body)
 
-  console.log('EEEEEEEEEEEEEEEEEE')
-  console.log(usuario)
-
   switch (method) {
     case 'POST':
       try {
         const query = `SELECT contrasena_usuario, tipoUsuario FROM usuarios WHERE usuario = '${usuario}'`
         const { rows } = await conn.query(query)
-
-        console.log(rows)
 
         if (rows.length === 0)
           return res.status(404).json({ estado: 404, mensaje: 'Usuario incorrecto' })
@@ -35,7 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       }
 
     default:
-      res.status(404).json('Método inválido.')
+      res.status(405).json('Método inválido.')
       break
 
   }

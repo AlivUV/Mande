@@ -16,7 +16,7 @@ export default function ServiceStatus(props) {
     </Link>
     <section>
       {
-        currentServices.map((singleService) => (
+        [{ name: 'S' }, { name: 'S' }, { name: 'S' }].map((singleService) => (
           <nav>
             <Link href={`/serviceStatus/${singleService.id}`}>
               <a>
@@ -31,9 +31,4 @@ export default function ServiceStatus(props) {
       }
     </section>
   </div>
-}
-
-export async function getServerSideProps(context) {
-  const { id } = context.query;
-  return { props: { id } };
 }
