@@ -3,12 +3,7 @@ import { useCallback, useContext } from 'react'
 import Context from '/src/context/serviceContext'
 
 export default function useService() {
-  const {
-    availableServices,
-    setAvailableServices,
-    workersByService,
-    setWorkersByService
-  } = useContext(Context)
+  const { availableServices, setAvailableServices, workersByService, setWorkersByService } = useContext(Context)
 
   const addServices = useCallback(services => {
     availableServices

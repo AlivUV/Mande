@@ -8,27 +8,23 @@ import styles from '/src/styles/Home.module.css'
 
 export default function Request({ props }) {
 
-  console.log(props)
-
   const router = useRouter()
 
-  const { isSelected, setWorkersByService, workersByService } = useService()
-  /*
-    const handleBack = useCallback(() => {
-      setWorkersByService(null)
-    }, [setWorkersByService])
-  
-    useEffect(() => {
-      if (!isSelected)
-        router.push('/requestService')
-    }, [isSelected, router])
-  */
+  const { isSelected, workersByService, setWorkersByService } = useService()
+
+  const handleBack = useCallback(() => {
+    setWorkersByService(null)
+  }, [setWorkersByService])
+
+  useEffect(() => {
+    if (!isSelected || workersByService === {})
+      router.push(`/requestService`)
+  }, [isSelected, router, workersByService])
+
   return <>
-    <nav>
-      <div className={styles.card} onClick={handleBack}>
-        <h2>Volver &larr;</h2>
-      </div>
-    </nav>
+    <div className={styles.card} onClick={handleBack}>
+      <h2>Volver &larr;</h2>
+    </div>
 
     <div className={styles.register}>
       {
