@@ -17,7 +17,7 @@ export default function Request({ props }) {
   }, [setWorkersByService])
 
   useEffect(() => {
-    if (!isSelected || workersByService === {})
+    if (!isSelected)
       router.push(`/requestService`)
   }, [isSelected, router, workersByService])
 
@@ -28,7 +28,7 @@ export default function Request({ props }) {
 
     <div className={styles.register}>
       {
-        workersByService
+        (workersByService && workersByService.length !== 0)
           ? workersByService.map(singleWorker => (
             <nav key={singleWorker.telefono_usuario}>
               <div className={styles.card}>

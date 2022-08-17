@@ -2,8 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/login": "pages/api/login.js",
-  "/requestService/[...service]": "pages/requestService/[...service].js",
-  "/login": "pages/login.js",
-  "/requestService": "pages/requestService.js"
+  "/api/services/workerByService": "pages/api/services/workerByService.js",
+  "/": "pages/index.js"
 }

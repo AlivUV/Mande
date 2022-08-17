@@ -29,6 +29,7 @@ export default function useService() {
             setWorkersByService(trabajadores)
             break
           case 404:
+            setWorkersByService([])
             console.log('No hay trabajadores disponibles')
             break
           default:

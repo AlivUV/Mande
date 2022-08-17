@@ -14,8 +14,8 @@ export default function RequestService() {
   const { isSelected, workersByService, searchWorkersByService } = useService()
 
   const availableServices = [
-    { id: 1, nombre: 'Paseo de mascotas', descripcion: 'Se pasean mascotas' },
-    { id: 2, nombre: 'Otra cosa', descripcion: 'Se pasean mascotas' }
+    { id: 1, nombre: 'Paseo de mascotas', descripcion: 'Se pasean mascotas.' },
+    { id: 2, nombre: 'Otra cosa', descripcion: 'Se realiza otra cosa.' }
   ]
 
   const [nombre, setNombre] = useState()
