@@ -3,11 +3,8 @@ import Link from 'next/link'
 
 import useService from '/src/hooks/useService'
 
-<<<<<<< HEAD
-import styles from '/src/styles/Home.module.css'
-=======
 import styles from 'src/styles/Home.module.css'
->>>>>>> b11061995e7cc5cee915e66f76e208ed1b26e5d6
+
 import { useCallback, useEffect, useState } from 'react'
 
 export default function RequestService() {
