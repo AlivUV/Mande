@@ -16,5 +16,10 @@ las calificaciones de los mismos.
 
 ## Vídeo de presentación del proyecto
 
+## Base de datos
+Desplegada en Heroku:
 
+<br /> Juan David Cabrera   (1924619)
+<br />Karen Daniela Moreno  (1922373)
+<br />Álvaro Portocarrero   (1922171)
 
