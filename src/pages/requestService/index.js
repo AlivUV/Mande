@@ -1,29 +1,25 @@
 import { useRouter } from 'next/Router'
-import { Formik } from 'formik'
 import Link from 'next/link'
 
 import useService from '/src/hooks/useService'
 
 import styles from 'src/styles/Home.module.css'
+import { useCallback } from 'react'
 
 export default function RequestService() {
 
-  //const { availableServices } = useService()
+  const router = useRouter()
+
+  const { searchWorkersByService } = useService()
 
   const availableServices = [
     { id: 1, nombre: 'Paseo de mascotas', descripcion: 'Se pasean mascotas' }
   ]
 
-  const router = useRouter()
-
-  const handleSubmit = values => {
-
-  }
-
-  const handleCancel = evt => {
-    evt.preventDefault()
-    router.push("/")
-  }
+  const handleClick = useCallback(nombre => {
+    searchWorkersByService(nombre)
+    router.push(`/requestService/${nombre}`)
+  }, [router, searchWorkersByService])
 
   return (
     <>
@@ -41,18 +37,14 @@ export default function RequestService() {
         <div className={styles.grid}>
           {
             availableServices.map(singleService => (
-              <Link href={`/requestService/${singleService.nombre.replace(/\s+/g, "")}`} key={singleService.id}>
-                <a>
-                  <div className={styles.card}>
-                    <h2>{singleService.nombre} &rarr;</h2>
-                    <p>{singleService.descripcion}</p>
-                  </div>
-                </a>
-              </Link>
+              <div className={styles.card} onClick={handleClick(singleService.nombre.replace(/\s+/g, ''))} key={singleService.id} >
+                <h2>{singleService.nombre} &rarr;</h2>
+                <p>{singleService.descripcion}</p>
+              </div>
             ))
           }
-        </div>
-      </div>
+        </div >
+      </div >
     </>
   );
 }

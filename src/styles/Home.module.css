@@ -76,6 +76,11 @@
   text-decoration: none;
 }
 
+.footer span {
+  color: #fff;
+  text-decoration: none;
+}
+
 .grid {
   display: flex;
   align-items: center;
