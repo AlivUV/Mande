@@ -2,7 +2,7 @@
 ## EMPRESA MANDE 
 
 Proyecto presentado por:
-<br /> Juan David Cabrera   (1924619)
+<br />Juan David Cabrera   (1924619)
 <br />Karen Daniela Moreno  (1922373)
 <br />Álvaro Portocarrero   (1922171)
 
@@ -19,7 +19,5 @@ las calificaciones de los mismos.
 ## Base de datos
 Desplegada en Heroku:
 
-<br /> Juan David Cabrera   (1924619)
-<br />Karen Daniela Moreno  (1922373)
-<br />Álvaro Portocarrero   (1922171)
+
 
