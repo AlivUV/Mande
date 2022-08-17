@@ -16,7 +16,7 @@
     "module": "esnext",
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
+    "baseUrl": "src",
     "resolveJsonModule": true
   },
   "include": [

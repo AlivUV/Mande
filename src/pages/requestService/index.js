@@ -3,14 +3,14 @@ import Link from 'next/link'
 
 import useService from '/src/hooks/useService'
 
-import styles from 'src/styles/Home.module.css'
-import { useCallback } from 'react'
+import styles from '/src/styles/Home.module.css'
+import { useCallback, useEffect, useState } from 'react'
 
 export default function RequestService() {
+  const { isSelected, searchWorkersByService } = useService()
+  const [name, setName] = useState()
 
   const router = useRouter()
-
-  const { searchWorkersByService } = useService()
 
   const availableServices = [
     { id: 1, nombre: 'Paseo de mascotas', descripcion: 'Se pasean mascotas' }
@@ -20,6 +20,12 @@ export default function RequestService() {
     searchWorkersByService(nombre)
     router.push(`/requestService/${nombre}`)
   }, [router, searchWorkersByService])
+
+  useEffect(() => {
+    if (isSelected) {
+
+    }
+  }, [isSelected, router])
 
   return (
     <>

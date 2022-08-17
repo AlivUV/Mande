@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/Router'
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 
 import useService from '/src/hooks/useService'
 
@@ -8,19 +8,26 @@ import styles from '/src/styles/Home.module.css'
 
 export default function Request({ props }) {
 
+  console.log(props)
+
   const router = useRouter()
 
-  const { workersByService, setWorkersByService } = useService()
-
+  const { isSelected, setWorkersByService, workersByService } = useService()
+  /*
+    const handleBack = useCallback(() => {
+      setWorkersByService(null)
+    }, [setWorkersByService])
+  
+    useEffect(() => {
+      if (!isSelected)
+        router.push('/requestService')
+    }, [isSelected, router])
+  */
   return <>
     <nav>
-      <Link href='/requestService'>
-        <a>
-          <div className={styles.card}>
-            <h2>Volver &larr;</h2>
-          </div>
-        </a>
-      </Link>
+      <div className={styles.card} onClick={handleBack}>
+        <h2>Volver &larr;</h2>
+      </div>
     </nav>
 
     <div className={styles.register}>

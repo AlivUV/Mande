@@ -1,11 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import { conn } from 'src/utils/database/index'
+import { conn } from '/src/utils/database/index'
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { method, body } = req
   const { service } = JSON.parse(body)
+
+  console.log(service)
 
   switch (method) {
     case 'GET':
@@ -27,6 +29,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
                         WHERE L.tipoServicio_labor = '${service}';`
 
         const { rows } = await conn.query(query)
+
+        console.log(rows)
 
         if (rows.length === 0)
           return res.status(404).json({ estado: 404, mensaje: 'No hay trabajadores disponibles' })
