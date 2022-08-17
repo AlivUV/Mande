@@ -4,22 +4,30 @@ import Link from 'next/link'
 import useService from '/src/hooks/useService'
 
 import styles from 'src/styles/Home.module.css'
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 export default function RequestService() {
 
   const router = useRouter()
 
-  const { searchWorkersByService } = useService()
+  const { isSelected, workersByService, searchWorkersByService } = useService()
 
   const availableServices = [
-    { id: 1, nombre: 'Paseo de mascotas', descripcion: 'Se pasean mascotas' }
+    { id: 1, nombre: 'Paseo de mascotas', descripcion: 'Se pasean mascotas' },
+    { id: 2, nombre: 'Otra cosa', descripcion: 'Se pasean mascotas' }
   ]
 
-  const handleClick = useCallback(nombre => {
-    searchWorkersByService(nombre)
-    router.push(`/requestService/${nombre}`)
-  }, [router, searchWorkersByService])
+  const [nombre, setNombre] = useState()
+
+  const handleClick = useCallback(servicio => {
+    searchWorkersByService(servicio)
+  }, [searchWorkersByService])
+
+  useEffect(() => {
+    if (isSelected) {
+      router.push(`/requestService/${nombre}`)
+    }
+  }, [isSelected, nombre, router, workersByService])
 
   return (
     <>
@@ -37,7 +45,15 @@ export default function RequestService() {
         <div className={styles.grid}>
           {
             availableServices.map(singleService => (
-              <div className={styles.card} onClick={handleClick(singleService.nombre.replace(/\s+/g, ''))} key={singleService.id} >
+              <div
+                className={styles.card}
+                onClick={(evt) => {
+                  evt.preventDefault()
+                  setNombre(singleService.nombre.replace(/\s+/g, ''))
+                  handleClick(singleService.nombre.replace(/\s+/g, ''))
+                }}
+                key={singleService.id}
+              >
                 <h2>{singleService.nombre} &rarr;</h2>
                 <p>{singleService.descripcion}</p>
               </div>

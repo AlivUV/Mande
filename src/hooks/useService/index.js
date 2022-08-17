@@ -43,6 +43,7 @@ export default function useService() {
   return {
     availableServices,
     addServices,
+    isSelected: Boolean(workersByService),
     workersByService,
     searchWorkersByService,
     setWorkersByService
